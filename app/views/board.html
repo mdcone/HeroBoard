@@ -1,3 +1,15 @@
-<div>
-    {{message}}
+<div layout="column" style="height:100%">
+    <md-toolbar class="top-bar" layout-padding>
+        <h3>HeroBoard</h3>
+    </md-toolbar>
+    <div layout="row" class="main-row" layout-padding layout-margin layout-fill flex>
+        <md-content flex="45">
+            <leaders></leaders>
+            <stats></stats>
+            <followers></followers>
+        </md-content>
+        <md-content flex>
+            Scrolling Board
+        </md-content>
+    </div>
 </div>

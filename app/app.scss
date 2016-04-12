@@ -1,0 +1,24 @@
+@import 'bower_components/angular-material/angular-material';
+
+$dark: #1F242A;
+$light: #E9E9E9;
+$accent: #0a96c8;
+
+body {
+  font-family: 'Open Sans';
+  background-color: $dark;
+}
+
+#HeroBoard {
+
+  .top-bar {
+    background-color: $dark;
+
+  }
+  .main-row {
+    >md-content {
+      border-top: 3px solid $accent;
+    }
+  }
+}
+
