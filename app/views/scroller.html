@@ -1,0 +1,8 @@
+<md-content layout="column">
+    <md-virtual-repeat-container flex id="vertical-container">
+        <div md-virtual-repeat="item in dynamicItems" md-on-demand
+             class="repeated-item" flex>
+            {{item.userFirstName}}
+        </div>
+    </md-virtual-repeat-container>
+</md-content>

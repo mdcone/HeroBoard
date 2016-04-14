@@ -3,13 +3,14 @@
         <h3>HeroBoard</h3>
     </md-toolbar>
     <div layout="row" class="main-row" layout-padding layout-margin layout-fill flex>
-        <md-content flex="45">
-            <leaders></leaders>
-            <stats></stats>
-            <followers></followers>
+        <md-content flex="45" class="no-background bragging-section">
+            <leaders class="md-whiteframe-4dp"></leaders>
+            <stats class="md-whiteframe-4dp"></stats>
+            <followers class="md-whiteframe-4dp"></followers>
         </md-content>
-        <md-content flex>
+        <md-content flex class="md-whiteframe-4dp scrolling-section">
             Scrolling Board
+            <scroller></scroller>
         </md-content>
     </div>
 </div>

@@ -1,6 +1,7 @@
 <h3>
     Leaders
 </h3>
-<ul>
-    <li ng-repeat="leader in leaders">{{leader.userFirstName}} {{leader.userLastName}}</li>
-</ul>
+<div layout="row">
+    <person-card flex="30" person="person" ng-repeat="person in leaders">
+    </person-card>
+</div>

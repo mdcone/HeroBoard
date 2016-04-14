@@ -1,7 +1,8 @@
-
-<ul>
-    <li ng-repeat="follower in followers">{{follower.userFirstName}} {{follower.userLastName}}</li>
-</ul>
 <h3>
     Followers
 </h3>
+<div layout="row">
+    <person-card flex="30" person="person" ng-repeat="person in followers">
+    </person-card>
+</div>
+
