@@ -1,17 +1,33 @@
 'use strict';
 
-angular.module('HeroBoard', ['ngMaterial', 'HeroBoard.Board', 'HeroBoard.dataWarehouse'])
-    .controller('HeroBoardCtrl', ['$scope', 'dataGrabber', 'stateMaintainer',
-        function ($scope, dataGrabber, stateMaintainer) {
+angular.module('HeroBoard', 
+    ['ngMaterial', 
+        'HeroBoard.Board', 
+        'HeroBoard.Stats', 
+        'HeroBoard.Leaders', 
+        'HeroBoard.Followers', 
+        'HeroBoard.Scroller', 
+        'HeroBoard.PersonCard', 
+        'HeroBoard.Filters', 
+        'HeroBoard.dataWarehouse'])
+    .controller('HeroBoardCtrl', ['$scope', 'dataGrabber', 'stateMaintainer', '$interval',
+        function ($scope, dataGrabber, stateMaintainer, $interval) {
             var request = dataGrabber.resourceGet('/public/leaderboard/468425');
-            request.then(function (data) {
-                console.log(data.data);
+            var lastTimeStamp;
 
-                
-                stateMaintainer.setItem('data', data.data);
+            var getUpdate = function () {
+                request.then(function (data) {
+                    if (data.data.timestamp !== lastTimeStamp) {
+                        lastTimeStamp = data.data.timestamp;
+                        stateMaintainer.setItem('data', data.data);
+                    }
+                }, function (error) {
+                    // oh noes!
+                });
+            };
 
-            }, function (error) {
-                // oh noes!
-            });
-            $scope.message = 'hello';
+            getUpdate();
+
+            // Get new data every 10 minutes...
+            $interval(getUpdate, 10 * 60 * 1000);
         }]);
