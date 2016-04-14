@@ -1,3 +1,4 @@
+// The main shell of the board and one of the directives it uses to display date.
 angular.module('HeroBoard.Board', [])
     .directive('boardLayout', function () {
         return {

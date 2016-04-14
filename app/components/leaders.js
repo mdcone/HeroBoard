@@ -1,3 +1,4 @@
+// Displays the top 3 performers out of the results data.
 angular.module('HeroBoard.Leaders', [])
     .directive('leaders', function () {
         return {

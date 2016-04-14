@@ -1,3 +1,4 @@
+// A scrolling display of records.
 angular.module('HeroBoard.Scroller', [])
     .directive('scroller', function () {
         return {
@@ -55,11 +56,14 @@ angular.module('HeroBoard.Scroller', [])
 
                 $scope.dynamicItems = new DynamicItems();
 
+                
+                // Here's the scrolling animation logic. When we reach the bottom
+                // the code jumps back up and starts over.
                 var offset = 0;
                 var card = 0;
                 var animationCallback = angular.bind(this, function () {
                     var userCard = $('#userCard' + (card += 3));
-                    console.log('userCard' + card + ' ' + JSON.stringify(userCard.offset()));
+
                     if (userCard.offset()) {
                         offset += userCard.offset().top;
                         $('.md-virtual-repeat-scroller').animate({

@@ -1,3 +1,5 @@
+// Provides an ordinal filter and a filter for outputting the kind of test
+// that was performed.
 angular.module('HeroBoard.Filters', [])
     .filter('ordinal', function () {
         return function (number) {

@@ -1,5 +1,7 @@
-
-
+// Code which goes through all of the results in our dataset and calculates
+// total number of reps, average number of reps, percentage of completion,
+// and percentage of completion taking into consideration prescribed execution versus
+// scaled. 
 angular.module('HeroBoard.Stats', [])
     .directive('stats', function () {
         return {

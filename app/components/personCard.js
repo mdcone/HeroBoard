@@ -1,3 +1,4 @@
+// A rendering of a person with their picture and name.
 angular.module('HeroBoard.PersonCard', [])
     .directive('personCard', function () {
         return {

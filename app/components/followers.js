@@ -1,3 +1,4 @@
+// Displays the results for the bottom 3 performers out of the results data.
 angular.module('HeroBoard.Followers', [])
     .directive('followers', function () {
         return {
