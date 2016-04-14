@@ -6,12 +6,12 @@ A web app displays workout data from a REST endpoint and displays it in a hopefu
 
 This app is brought to you by multiple open source libraries and utilities. They are:
 
-AngularJS and multiple angular libraries
-Angular Material
-jQuery
-HTML5 Boilerplate
-Google's Open Sans font
-The Sass Compiler
+ - AngularJS and multiple angular libraries
+ - Angular Material
+ - jQuery
+ - HTML5 Boilerplate
+ - Google's Open Sans font
+ - The Sass Compiler
 
 It would have been also brought to you by protractor, and cucumberjs, however due to fighting java versioning problems I couldn't get the selenium server to start. Generally I like writing TDD using Gherkin tests. Anyway, on with the show!
 
