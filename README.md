@@ -43,3 +43,7 @@ One reason I decided to do the scrolling is to minimize the amount of data one w
 ## Third Party Choices
 
 I went with Angular Material because part of the task was to emulate some look and feel concepts from the TrainHeroic website, which is also using Material. I chose the OpenSans font for that same reason. Also because of the scrolling method that I wanted to use I was able to leverage some of the angular material repeating directives for handling large data sets which was really easy to use. Some of the other libraries were brought in to my project automatically as I used the angular template project built into WebStorm to begin the project.
+
+## Instructions
+
+Run bower install, then open up the index.html. It's that easy!
