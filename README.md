@@ -13,7 +13,7 @@ HTML5 Boilerplate
 Google's Open Sans font
 The Sass Compiler
 
-It would have been also brought to you by protractor, and cucumberjs, however due to fighting java versioning problems I couldn't get the selenium server to start. Anyway, on with the show!
+It would have been also brought to you by protractor, and cucumberjs, however due to fighting java versioning problems I couldn't get the selenium server to start. Generally I like writing TDD using Gherkin tests. Anyway, on with the show!
 
 ## Design Considerations
 
