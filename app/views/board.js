@@ -108,8 +108,8 @@ angular.module('HeroBoard.Board', [])
         return {
             restrict: 'E',
             scope: {},
-            inject: ['$scope', 'stateMaintainer', '$rootScope', '$timtout'],
-            controller: function ($scope, stateMaintainer, $rootScope, $timeout) {
+            inject: ['$scope', 'stateMaintainer', '$rootScope', '$timtout', '$interval'],
+            controller: function ($scope, stateMaintainer, $rootScope, $timeout, $interval) {
                 // This code is taken from the examples on Angular Material's
                 // site for their Virtual Repeater
                 var DynamicItems = function () {
@@ -144,7 +144,7 @@ angular.module('HeroBoard.Board', [])
                         this.loadedPages[pageNumber] = [];
                         var pageOffset = pageNumber * this.PAGE_SIZE;
                         for (var i = pageOffset; i < pageOffset + this.PAGE_SIZE; i++) {
-                            console.log('Loading ' + i + 'at results: ' + JSON.stringify(results[i]))
+                            //console.log('Loading ' + i + 'at results: ' + JSON.stringify(results[i]))
                             this.loadedPages[pageNumber].push(results[i]);
                         }
                     }));
@@ -156,32 +156,78 @@ angular.module('HeroBoard.Board', [])
 
                 $rootScope.$on('data-updated', function () {
                     $scope.dynamicItems = new DynamicItems();
+                    $scope.testType = stateMaintainer.store.data.tests[0].testType;
                 });
 
                 $scope.dynamicItems = new DynamicItems();
+
+                var offset = 0;
+                var card = 0;
+                var animationCallback = angular.bind(this, function () {
+                    var userCard = $('#userCard' + (card += 3));
+                    console.log('userCard' + card + ' ' + JSON.stringify(userCard.offset()));
+                    if (userCard.offset()) {
+                        offset += userCard.offset().top;
+                        $('.md-virtual-repeat-scroller').animate({
+                            scrollTop: offset
+                        }, 1000, 'swing', function () {
+                            $timeout(animationCallback, 1500);
+                        });
+                    } else {
+                        card = 0;
+                        offset = 0;
+                        $('.md-virtual-repeat-scroller').animate({
+                            scrollTop: 0
+                        }, 1000, 'swing', function () {
+                            $timeout(animationCallback, 1500);
+                        });
+                    }
+                });
+                $timeout(animationCallback, 1000);
             },
             templateUrl: 'views/scroller.html'
         }
     })
-    .filter('ordinal', function() {
+    .filter('ordinal', function () {
         return function (number) {
             var retVal;
             var lastDigit;
-            
+
             if (isNaN(number) || number < 1) {
-                retVal =  number;
+                retVal = number;
             } else {
                 lastDigit = number % 10;
                 if (lastDigit === 1) {
-                    retVal = number + 'st'
+                    retVal = number + 'st';
                 } else if (lastDigit === 2) {
-                    retVal = number + 'nd'
+                    retVal = number + 'nd';
                 } else if (lastDigit === 3) {
-                    retVal = number + 'rd'
-                } else if (lastDigit > 3) {
-                    retVal = number + 'th'
+                    retVal = number + 'rd';
+                } else if (lastDigit > 3 || lastDigit === 0) {
+                    retVal = number + 'th';
                 }
             }
-           return retVal; 
+            return retVal;
+        }
+    })
+    .filter('testformatter', function () {
+        return function (testResult, type) {
+            var retVal;
+            var lookup = {};
+            lookup[1] = 'lbs';
+            lookup[2] = 'reps';
+            lookup[3] = 'rounds';
+            lookup[4] = 'time';
+            lookup[5] = 'yards';
+            lookup[6] = 'meters';
+            lookup[7] = 'feet';
+            lookup[8] = 'calories';
+
+            retVal = parseInt(testResult, 10) + ' ' + lookup[type];
+            if (testResult.indexOf('RX') === -1) {
+                retVal += ' with mods'
+            }
+
+            return retVal;
         }
     });

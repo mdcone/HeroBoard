@@ -12,15 +12,12 @@ body {
 #HeroBoard {
 
   .top-bar {
-    background-color: $dark;
 
+    background-color: transparent;
   }
   .main-row {
-    background-color: $dark;
-    leaders, followers {
-      background-color: $light;
-      border-top: 3px solid $accent;
-    }
+    background-color: transparent;
+
     stats > md-content {
       border-top: 3px solid $accent;
     }
@@ -49,7 +46,7 @@ body {
     div.person-with-rank {
       .rank {
         position: absolute;
-        top: 0px;
+        top: 0;
         float:left;
         .rank-num {
           font-size: 2em;
@@ -58,15 +55,16 @@ body {
 
       .image {
         margin-top: 31px;
-        
+
       }
 
+      $imageSize: 117px;
       img.rounded {
         -webkit-border-radius: 100%;
         -moz-border-radius: 100%;
         border-radius: 100%;
-        border: solid 1px $light;
-        width: 117px;
+        width: $imageSize;
+        height: $imageSize;
       }
 
       .name {
@@ -87,11 +85,58 @@ body {
       }
     }
   }
+
+  .scrolling-section {
+    background-color: transparent;
+    margin-top: -13px;
+    margin-bottom: -13px;
+
+    .scroll-card {
+      background-color: $light;
+      border-top: 3px solid $accent;
+      margin-bottom: 20px;
+
+      .md-headline,
+      .rank {
+        margin-left: 10px;
+      }
+
+      .rank {
+        font-size:1.2em;
+        font-variant: small-caps;
+
+      }
+
+      .no-spill {
+        overflow: hidden;
+      }
+    }
+  }
+
+  .white-background-column {
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    background-color:$light;
+    width:44%;
+    z-index:0;
+  }
+
+  .top-bar {
+    z-index: 1;
+  }
+
+
+  .main-row {
+    z-index: 2;
+  }
 }
 
 #vertical-container {
-  height: 500px;
+  height: 1075px;
 }
+
 
 .virtualRepeatdemoDeferredLoading #vertical-container {
   height: 292px;

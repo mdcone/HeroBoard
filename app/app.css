@@ -19716,12 +19716,9 @@ body {
   background-color: #1F242A; }
 
 #HeroBoard .top-bar {
-  background-color: #1F242A; }
+  background-color: transparent; }
 #HeroBoard .main-row {
-  background-color: #1F242A; }
-  #HeroBoard .main-row leaders, #HeroBoard .main-row followers {
-    background-color: #E9E9E9;
-    border-top: 3px solid #0a96c8; }
+  background-color: transparent; }
   #HeroBoard .main-row stats > md-content {
     border-top: 3px solid #0a96c8; }
   #HeroBoard .main-row .no-background {
@@ -19740,7 +19737,7 @@ body {
   width: 100%; }
 #HeroBoard .bragging-section div.person-with-rank .rank {
   position: absolute;
-  top: 0px;
+  top: 0;
   float: left; }
   #HeroBoard .bragging-section div.person-with-rank .rank .rank-num {
     font-size: 2em; }
@@ -19750,8 +19747,8 @@ body {
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   border-radius: 100%;
-  border: solid 1px #E9E9E9;
-  width: 117px; }
+  width: 117px;
+  height: 117px; }
 #HeroBoard .bragging-section div.person-with-rank .name {
   left: 139px;
   top: 57px;
@@ -19763,9 +19760,37 @@ body {
     font-size: 4em; }
   #HeroBoard .bragging-section div.stat .small-text {
     font-size: 1.2em; }
+#HeroBoard .scrolling-section {
+  background-color: transparent;
+  margin-top: -13px;
+  margin-bottom: -13px; }
+  #HeroBoard .scrolling-section .scroll-card {
+    background-color: #E9E9E9;
+    border-top: 3px solid #0a96c8;
+    margin-bottom: 20px; }
+    #HeroBoard .scrolling-section .scroll-card .md-headline,
+    #HeroBoard .scrolling-section .scroll-card .rank {
+      margin-left: 10px; }
+    #HeroBoard .scrolling-section .scroll-card .rank {
+      font-size: 1.2em;
+      font-variant: small-caps; }
+    #HeroBoard .scrolling-section .scroll-card .card-medi {
+      overflow: hidden; }
+#HeroBoard .white-background-column {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #E9E9E9;
+  width: 44%;
+  z-index: 0; }
+#HeroBoard .top-bar {
+  z-index: 1; }
+#HeroBoard .main-row {
+  z-index: 2; }
 
 #vertical-container {
-  height: 500px; }
+  height: 1075px; }
 
 .virtualRepeatdemoDeferredLoading #vertical-container {
   height: 292px;
