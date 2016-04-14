@@ -19739,12 +19739,15 @@ body {
     border: solid 1px #E9E9E9;
     width: 117px; }
   #HeroBoard div.person-with-rank .name {
-    left: 120px;
-    top: px;
+    left: 139px;
+    top: 57px;
     font-size: 1.5rem;
     position: absolute; }
 #HeroBoard .bragging-section h3 {
-  color: #0a96c8; }
+  color: #0a96c8;
+  font-weight: 100;
+  font-size: 2.5em;
+  font-variant: small-caps; }
 
 #vertical-container {
   height: 500px; }
