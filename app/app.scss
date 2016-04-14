@@ -29,29 +29,6 @@ body {
     }
   }
 
-  div.person-with-rank {
-    color: $light;
-    background-color: transparent;
-    display: inline-block;
-    position: relative;
-    width: 100%;
-
-    img.rounded {
-      -webkit-border-radius: 100%;
-      -moz-border-radius: 100%;
-      border-radius: 100%;
-      border: solid 1px $light;
-      width: 117px;
-    }
-
-    .name {
-      left: 139px;
-      top:57px;
-      font-size:1.5rem;
-      position:absolute;
-    }
-  }
-
   .bragging-section {
     h3 {
       color: $accent;
@@ -60,6 +37,55 @@ body {
       font-variant: small-caps;
     }
 
+    div.person-with-rank,
+    div.stat {
+      color: $light;
+      background-color: transparent;
+      display: inline-block;
+      position: relative;
+      width: 100%;
+
+    }
+    div.person-with-rank {
+      .rank {
+        position: absolute;
+        top: 0px;
+        float:left;
+        .rank-num {
+          font-size: 2em;
+        }
+      }
+
+      .image {
+        margin-top: 31px;
+        
+      }
+
+      img.rounded {
+        -webkit-border-radius: 100%;
+        -moz-border-radius: 100%;
+        border-radius: 100%;
+        border: solid 1px $light;
+        width: 117px;
+      }
+
+      .name {
+        left: 139px;
+        top: 57px;
+        font-size: 1.5em;
+        position: absolute;
+      }
+    }
+
+    div.stat {
+      text-align: center;
+      .headline {
+        font-size: 4em;
+      }
+      .small-text {
+        font-size: 1.2em;
+      }
+    }
   }
 }
 

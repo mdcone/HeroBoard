@@ -1,22 +1,32 @@
+<h3>
+    workout stats
+</h3>
 <div layout="row">
-    <md-card flex="30">
-        <md-card-title>
-            <md-card-title-text>
-                <span class="md-headline">{{totalReps}}</span>
-                <span class="md-subhead small-text">total {{units}}</span>
-            </md-card-title-text>
+    <div flex="30">
+        <div class="stat">
+            <div>
+                <div class="headline">{{totalReps}}</div>
+                <div class="small-text">total {{units | lowercase}}</div>
+            </div>
+        </div>
+    </div>
 
-        </md-card-title>
-    </md-card>
+    <div flex="30">
+        <div class="stat">
+            <div>
+                <div class="headline">{{averageReps}}</div>
+                <div class="small-text">average {{units | lowercase}}</div>
+            </div>
+        </div>
+    </div>
 
-    <md-card flex="30">
-        <md-card-title>
-            <md-card-title-text>
-                <span class="md-headline">{{averageReps}}</span>
-                <span class="md-subhead small-text">average {{units}}</span>
-            </md-card-title-text>
-
-        </md-card-title>
-    </md-card>
+    <div flex="30">
+        <div class="stat">
+            <div>
+                <div class="headline">{{asPerscribed}}%</div>
+                <div class="small-text">perfection percentage</div>
+            </div>
+        </div>
+    </div>
 </div>
 

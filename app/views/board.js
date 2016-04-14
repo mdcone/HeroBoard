@@ -32,24 +32,35 @@ angular.module('HeroBoard.Board', [])
                 $scope.data = stateMaintainer.store.data;
                 $scope.totalReps = '...';
                 $scope.averageReps = '...';
+                $scope.asPerscribed = '...';
 
                 $rootScope.$on('data-updated', function () {
                     var totalAccum = 0;
                     var averageAccum = 0;
+                    var asPerscribed = 0;
+                    var numTests = 0;
+
                     $scope.followers = [];
                     $scope.data = stateMaintainer.store.data;
 
-                    if ($scope.data) {
+                    if ($scope.data && $scope.data.results) {
                         $scope.testResults = $scope.data.results;
+                        numTests = $scope.testResults.length;
                     }
 
                     if ($scope.testResults) {
-                        for (var i = 0; i < $scope.testResults.length; i++) {
+                        for (var i = 0; i < numTests; i++) {
                             totalAccum += parseInt($scope.testResults[i].tests[0], 10);
+                            if ($scope.testResults[i].tests[0].indexOf('RX') !== -1) {
+                                asPerscribed++;
+                            }
                         }
                         averageAccum = totalAccum / $scope.testResults.length;
+
+
                     }
 
+                    $scope.asPerscribed = parseInt((asPerscribed / numTests) * 100, 10);
                     $scope.totalReps = totalAccum;
                     $scope.averageReps = Math.round(averageAccum);
                     $scope.units = $scope.data.tests[0].unit;
@@ -142,7 +153,7 @@ angular.module('HeroBoard.Board', [])
                     var results = stateMaintainer.store.data;
                     this.numItems = (results) ? results.results.length : 0;
                 };
-                
+
                 $rootScope.$on('data-updated', function () {
                     $scope.dynamicItems = new DynamicItems();
                 });
@@ -150,5 +161,27 @@ angular.module('HeroBoard.Board', [])
                 $scope.dynamicItems = new DynamicItems();
             },
             templateUrl: 'views/scroller.html'
+        }
+    })
+    .filter('ordinal', function() {
+        return function (number) {
+            var retVal;
+            var lastDigit;
+            
+            if (isNaN(number) || number < 1) {
+                retVal =  number;
+            } else {
+                lastDigit = number % 10;
+                if (lastDigit === 1) {
+                    retVal = number + 'st'
+                } else if (lastDigit === 2) {
+                    retVal = number + 'nd'
+                } else if (lastDigit === 3) {
+                    retVal = number + 'rd'
+                } else if (lastDigit > 3) {
+                    retVal = number + 'th'
+                }
+            }
+           return retVal; 
         }
     });

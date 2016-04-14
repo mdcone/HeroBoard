@@ -19726,28 +19726,43 @@ body {
     border-top: 3px solid #0a96c8; }
   #HeroBoard .main-row .no-background {
     background-color: transparent; }
-#HeroBoard div.person-with-rank {
-  color: #E9E9E9;
-  background-color: transparent;
-  display: inline-block;
-  position: relative;
-  width: 100%; }
-  #HeroBoard div.person-with-rank img.rounded {
-    -webkit-border-radius: 100%;
-    -moz-border-radius: 100%;
-    border-radius: 100%;
-    border: solid 1px #E9E9E9;
-    width: 117px; }
-  #HeroBoard div.person-with-rank .name {
-    left: 139px;
-    top: 57px;
-    font-size: 1.5rem;
-    position: absolute; }
 #HeroBoard .bragging-section h3 {
   color: #0a96c8;
   font-weight: 100;
   font-size: 2.5em;
   font-variant: small-caps; }
+#HeroBoard .bragging-section div.person-with-rank,
+#HeroBoard .bragging-section div.stat {
+  color: #E9E9E9;
+  background-color: transparent;
+  display: inline-block;
+  position: relative;
+  width: 100%; }
+#HeroBoard .bragging-section div.person-with-rank .rank {
+  position: absolute;
+  top: 0px;
+  float: left; }
+  #HeroBoard .bragging-section div.person-with-rank .rank .rank-num {
+    font-size: 2em; }
+#HeroBoard .bragging-section div.person-with-rank .image {
+  margin-top: 31px; }
+#HeroBoard .bragging-section div.person-with-rank img.rounded {
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  border: solid 1px #E9E9E9;
+  width: 117px; }
+#HeroBoard .bragging-section div.person-with-rank .name {
+  left: 139px;
+  top: 57px;
+  font-size: 1.5em;
+  position: absolute; }
+#HeroBoard .bragging-section div.stat {
+  text-align: center; }
+  #HeroBoard .bragging-section div.stat .headline {
+    font-size: 4em; }
+  #HeroBoard .bragging-section div.stat .small-text {
+    font-size: 1.2em; }
 
 #vertical-container {
   height: 500px; }
