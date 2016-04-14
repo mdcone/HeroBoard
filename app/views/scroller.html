@@ -15,7 +15,7 @@
                         <span class="rank">OVERALL RANK {{item.avgRank | ordinal}} </span>
                     </md-card-title-text>
                     <md-card-title-text layout="end center">
-                        <span class="md-headline" ng-repeat="test in item.tests">{{test | testformatter:testType}}</span>
+                        <span class="md-headline results" ng-repeat="test in item.tests">{{test | testformatter:testType}}</span>
                     </md-card-title-text>
                 </md-card-title>
             </md-card>

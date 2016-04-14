@@ -37,13 +37,16 @@ angular.module('HeroBoard.Board', [])
                 $rootScope.$on('data-updated', function () {
                     var totalAccum = 0;
                     var averageAccum = 0;
+                    var completedAccum = 0;
                     var asPerscribed = 0;
                     var numTests = 0;
+                    var result;
 
                     $scope.followers = [];
                     $scope.data = stateMaintainer.store.data;
 
                     if ($scope.data && $scope.data.results) {
+                        $scope.test = $scope.data.tests[0];
                         $scope.testResults = $scope.data.results;
                         numTests = $scope.testResults.length;
                     }
@@ -51,18 +54,24 @@ angular.module('HeroBoard.Board', [])
                     if ($scope.testResults) {
                         for (var i = 0; i < numTests; i++) {
                             totalAccum += parseInt($scope.testResults[i].tests[0], 10);
-                            if ($scope.testResults[i].tests[0].indexOf('RX') !== -1) {
+                            result = $scope.testResults[i].tests[0];
+                            if (result.indexOf('RX') !== -1) {
                                 asPerscribed++;
+                                if (parseInt(result, 10) > 0) {
+                                    completedAccum++;
+                                }
                             }
+                            
                         }
                         averageAccum = totalAccum / $scope.testResults.length;
 
-
+                        
                     }
 
                     $scope.asPerscribed = parseInt((asPerscribed / numTests) * 100, 10);
                     $scope.totalReps = totalAccum;
                     $scope.averageReps = Math.round(averageAccum);
+                    $scope.completed = parseInt((completedAccum / numTests) * 100, 10);
                     $scope.units = $scope.data.tests[0].unit;
                 });
             },
@@ -186,6 +195,21 @@ angular.module('HeroBoard.Board', [])
                 $timeout(animationCallback, 1000);
             },
             templateUrl: 'views/scroller.html'
+        }
+    })
+    .directive('workoutDate', function () {
+        return {
+            restrict: 'E',
+            scope: {},
+            controller: function ($scope, stateMaintainer, $rootScope) {
+                $scope.date = stateMaintainer.store.data;
+
+                $rootScope.$on('data-updated', function () {
+                    $scope.date = stateMaintainer.store.data.date;
+                });
+            },
+            inject: ['$scope', 'stateMaintainer', '$rootScope'],
+            template: '{{date | date}}'
         }
     })
     .filter('ordinal', function () {

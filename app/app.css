@@ -19715,6 +19715,9 @@ body {
   font-family: 'Open Sans';
   background-color: #1F242A; }
 
+i {
+  font-feature-settings: "liga" 1, "dlig" 1; }
+
 #HeroBoard .top-bar {
   background-color: transparent; }
 #HeroBoard .main-row {
@@ -19723,6 +19726,14 @@ body {
     border-top: 3px solid #0a96c8; }
   #HeroBoard .main-row .no-background {
     background-color: transparent; }
+#HeroBoard .bragging-section h1 {
+  color: #E9E9E9;
+  font-size: 3.5em;
+  font-weight: lighter;
+  font-variant: small-caps; }
+#HeroBoard .bragging-section p {
+  font-size: 1.6em;
+  color: #E9E9E9; }
 #HeroBoard .bragging-section h3 {
   color: #0a96c8;
   font-weight: 100;
@@ -19742,16 +19753,16 @@ body {
   #HeroBoard .bragging-section div.person-with-rank .rank .rank-num {
     font-size: 2em; }
 #HeroBoard .bragging-section div.person-with-rank .image {
-  margin-top: 31px; }
+  margin-top: 0px; }
 #HeroBoard .bragging-section div.person-with-rank img.rounded {
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   border-radius: 100%;
-  width: 117px;
-  height: 117px; }
+  width: 34%;
+  height: auto; }
 #HeroBoard .bragging-section div.person-with-rank .name {
-  left: 139px;
-  top: 57px;
+  left: 109px;
+  top: 7px;
   font-size: 1.5em;
   position: absolute; }
 #HeroBoard .bragging-section div.stat {
@@ -19772,9 +19783,11 @@ body {
     #HeroBoard .scrolling-section .scroll-card .rank {
       margin-left: 10px; }
     #HeroBoard .scrolling-section .scroll-card .rank {
-      font-size: 1.2em;
+      font-size: 1.2em; }
+    #HeroBoard .scrolling-section .scroll-card .rank,
+    #HeroBoard .scrolling-section .scroll-card .results {
       font-variant: small-caps; }
-    #HeroBoard .scrolling-section .scroll-card .card-medi {
+    #HeroBoard .scrolling-section .scroll-card .no-spill {
       overflow: hidden; }
 #HeroBoard .white-background-column {
   position: absolute;
@@ -19788,6 +19801,16 @@ body {
   z-index: 1; }
 #HeroBoard .main-row {
   z-index: 2; }
+#HeroBoard .bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-style: italic;
+  color: #E9E9E9; }
+  #HeroBoard .bottom .branding {
+    font-size: 2em; }
+    #HeroBoard .bottom .branding .highlight {
+      color: #0a96c8; }
 
 #vertical-container {
   height: 1075px; }

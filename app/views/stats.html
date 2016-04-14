@@ -1,8 +1,14 @@
+<h1>
+    {{test.title}}
+</h1>
+<p>
+    {{test.testInstructions}}
+</p>
 <h3>
     workout stats
 </h3>
 <div layout="row">
-    <div flex="30">
+    <div flex="25">
         <div class="stat">
             <div>
                 <div class="headline">{{totalReps}}</div>
@@ -11,20 +17,29 @@
         </div>
     </div>
 
-    <div flex="30">
+    <div flex="25">
         <div class="stat">
             <div>
                 <div class="headline">{{averageReps}}</div>
-                <div class="small-text">average {{units | lowercase}}</div>
+                <div class="small-text">average # <br> of {{units | lowercase}}</div>
             </div>
         </div>
     </div>
 
-    <div flex="30">
+    <div flex="25">
         <div class="stat">
             <div>
                 <div class="headline">{{asPerscribed}}%</div>
-                <div class="small-text">perfection percentage</div>
+                <div class="small-text">perfection<br>percentage</div>
+            </div>
+        </div>
+    </div>
+
+    <div flex="25">
+        <div class="stat">
+            <div>
+                <div class="headline">{{completed}}%</div>
+                <div class="small-text">completed as <br> perscribed</div>
             </div>
         </div>
     </div>

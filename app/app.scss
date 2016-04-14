@@ -9,6 +9,10 @@ body {
   background-color: $dark;
 }
 
+i {
+  font-feature-settings: "liga" 1, "dlig" 1;
+}
+
 #HeroBoard {
 
   .top-bar {
@@ -27,6 +31,16 @@ body {
   }
 
   .bragging-section {
+    h1 {
+      color: $light;
+      font-size: 3.5em;
+      font-weight: lighter;
+      font-variant: small-caps;
+    }
+    p {
+      font-size: 1.6em;
+      color: $light;
+    }
     h3 {
       color: $accent;
       font-weight: 100;
@@ -47,29 +61,28 @@ body {
       .rank {
         position: absolute;
         top: 0;
-        float:left;
+        float: left;
         .rank-num {
           font-size: 2em;
         }
       }
 
       .image {
-        margin-top: 31px;
+        margin-top: 0px;
 
       }
 
-      $imageSize: 117px;
       img.rounded {
         -webkit-border-radius: 100%;
         -moz-border-radius: 100%;
         border-radius: 100%;
-        width: $imageSize;
-        height: $imageSize;
+        width: 34%;
+        height: auto;
       }
 
       .name {
-        left: 139px;
-        top: 57px;
+        left: 109px;
+        top: 7px;
         font-size: 1.5em;
         position: absolute;
       }
@@ -102,9 +115,12 @@ body {
       }
 
       .rank {
-        font-size:1.2em;
-        font-variant: small-caps;
+        font-size: 1.2em;
+      }
 
+      .rank,
+      .results {
+        font-variant: small-caps;
       }
 
       .no-spill {
@@ -114,29 +130,42 @@ body {
   }
 
   .white-background-column {
-    position:absolute;
-    top:0;
-    right:0;
-    bottom:0;
-    background-color:$light;
-    width:44%;
-    z-index:0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $light;
+    width: 44%;
+    z-index: 0;
   }
 
   .top-bar {
     z-index: 1;
   }
 
-
   .main-row {
     z-index: 2;
+  }
+
+  .bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-style: italic;
+    color: $light;
+    .branding {
+      font-size: 2em;
+      .highlight {
+        color: $accent;
+      }
+    }
+
   }
 }
 
 #vertical-container {
   height: 1075px;
 }
-
 
 .virtualRepeatdemoDeferredLoading #vertical-container {
   height: 292px;
