@@ -8,17 +8,24 @@ describe('workoutDate directive', function () {
         scope,
         stateMaintainer;
 
+    function upDate(date) {
+        stateMaintainer.setItem('data', {  date: date});
+    } 
+    
     beforeEach(inject(function ($rootScope, _stateMaintainer_) {
         scope = $rootScope.$new();
         stateMaintainer = _stateMaintainer_;
-        stateMaintainer.setItem('data', {  date: '01/23/1945'});
     }));
 
     it('should populate element with the date', inject(function ($compile) {
+        upDate('01/23/1945');
         element = angular.element('<workout-date></workout-date>');
         element = $compile(element)(scope);
         scope.$digest();
         expect(element.html()).toContain('01/23/1945');
-        
+        upDate('01/23/1946');
+        scope.$digest();
+        expect(element.html()).toContain('01/23/1946');
     }));
+    
 });
