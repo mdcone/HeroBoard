@@ -23,6 +23,9 @@ angular.module('HeroBoard.dataWarehouse', [])
                 );
 
                 return deferrable.promise;
+            },
+            setAppUrl: function (newAppUrl) {
+                appURL = newAppUrl;
             }
         }
     }])

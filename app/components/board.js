@@ -10,7 +10,7 @@ angular.module('HeroBoard.Board', [])
             restrict: 'E',
             scope: {},
             controller: function ($scope, stateMaintainer, $rootScope) {
-                $scope.date = stateMaintainer.store.data;
+                $scope.date = stateMaintainer.store.data ? stateMaintainer.store.data.date : '?';
 
                 $rootScope.$on('data-updated', function () {
                     $scope.date = stateMaintainer.store.data.date;
